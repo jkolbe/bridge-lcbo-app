@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { getStores, setStore, handleMapMounted, handleBoundsChanged, handleMarkerClick, handleMarkerClose } from '../../actions/stores';
+import { getStores, handleMapMounted, handleBoundsChanged, handleMarkerClick, handleMarkerClose } from '../../actions/stores';
 import {connect} from 'react-redux';
 import StoreMap from '../../components/storemap/storemap.js';
 
@@ -9,7 +9,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   getStores,
-  setStore,
   handleBoundsChanged,
   handleMapMounted,
   handleMarkerClick,
@@ -24,7 +23,6 @@ class Stores extends Component {
 
   componentDidMount() {
     this.props.getStores(this.props.stores.lat, this.props.stores.lon);
-    this.props.setStore();
   }
 
   render() {
